@@ -3,3 +3,6 @@ andrew
 rimon
 serrano
 malan
+abdullah
+salam
+rafiq
