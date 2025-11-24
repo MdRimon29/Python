@@ -38,10 +38,5 @@ with open("file_io/names.csv", "r") as file:
         instructor={"name": name, "course":course}
         instructors.append(instructor)
 
-def get_names(names):
-    return names["name"]
-
-for nm in sorted(instructors, key=get_names):
+for nm in sorted(instructors, key= (lambda student:student["name"])):
     print(f"{nm['name']} takes {nm['course']} course.")
-        
-        
