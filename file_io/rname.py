@@ -29,14 +29,27 @@
 #         name, courses = line.rstrip().split(",")    #using , for seperated values in lines by comma
 #         print(f"{name} takes {courses} course.")
         
+ 
         
-        
+# instructors=[]
+# with open("file_io/names.csv", "r") as file:
+#     for line in file:
+#         name, course = line.rstrip().split(",")    #using , for seperated values in lines by comma
+#         instructor={"name": name, "course":course}
+#         instructors.append(instructor)
+
+# for nm in sorted(instructors, key= (lambda student:student["name"])):
+#     print(f"{nm['name']} takes {nm['course']} course.")
+
+
+
+import csv
 instructors=[]
 with open("file_io/names.csv", "r") as file:
-    for line in file:
-        name, course = line.rstrip().split(",")    #using , for seperated values in lines by comma
-        instructor={"name": name, "course":course}
-        instructors.append(instructor)
-
+    reader = csv.reader(file)
+    for read in reader:
+        instructors.append({"name":read[0], "course":read[1]})
+    
+    
 for nm in sorted(instructors, key= (lambda student:student["name"])):
     print(f"{nm['name']} takes {nm['course']} course.")
