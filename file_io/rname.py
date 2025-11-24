@@ -24,7 +24,24 @@
 #         name, courses = line.rstrip().split(",")    #using , for seperated values in lines by comma
 #         print(f"{name} takes {courses} course.")
 
+# with open("file_io/names.csv", "r") as file:
+#     for line in file:
+#         name, courses = line.rstrip().split(",")    #using , for seperated values in lines by comma
+#         print(f"{name} takes {courses} course.")
+        
+        
+        
+instructors=[]
 with open("file_io/names.csv", "r") as file:
     for line in file:
-        name, courses = line.rstrip().split(",")    #using , for seperated values in lines by comma
-        print(f"{name} takes {courses} course.")
+        name, course = line.rstrip().split(",")    #using , for seperated values in lines by comma
+        instructor={"name": name, "course":course}
+        instructors.append(instructor)
+
+def get_names(names):
+    return names["name"]
+
+for nm in sorted(instructors, key=get_names):
+    print(f"{nm['name']} takes {nm['course']} course.")
+        
+        
