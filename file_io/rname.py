@@ -13,4 +13,4 @@
 ### More shorter version
 with open("file_io/names.txt", "r") as file:
     for line in sorted(file):
-        print("My name is ", line.rstrip())
+        print("My name is ", line.rstrip()) # if we want reverse order then simply just add reverse="True"
